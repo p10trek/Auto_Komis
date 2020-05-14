@@ -46,5 +46,11 @@ namespace Auto_Komis
         {
             throw new NotImplementedException();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DataAcces dataAcces = new DataAcces();
+            dataAcces.CreateSQLConnection();
+        }
     }
 }
