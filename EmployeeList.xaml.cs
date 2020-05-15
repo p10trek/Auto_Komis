@@ -22,7 +22,8 @@ namespace Auto_Komis
     {
         public List<Employee> ListOfEmployees { get; set; }
         public string ProcedureName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+        public string QueryString { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<SqlParameter> ParamList { get; set; }
         public EmployeeList()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace Auto_Komis
 
         public bool GetData(string ProcedureName)
         {
-            return DataAcces.Instance.GetData(this);
+            return false;
         }
 
         public bool AddData(string ProcedureName)

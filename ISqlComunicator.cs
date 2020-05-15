@@ -10,6 +10,8 @@ namespace Auto_Komis
     public interface ISqlComunicator
     {
         string ProcedureName { get; set; }
+        string QueryString { get; set; }
+        List<SqlParameter> ParamList { get; set; }
         bool GetData(string ProcedureName);
         bool AddData(string ProcedureName);
         bool ModifyData(string ProcedureName);

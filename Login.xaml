@@ -19,8 +19,8 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Row="1" Grid.Column="1"/>
-        <PasswordBox Grid.Row="2" Grid.Column="1"/>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="User"/>
+        <PasswordBox Grid.Row="2" Grid.Column="1" x:Name="Password"/>
         <Button Click="Button_Click" Grid.Row="3" Grid.Column="1">
             Login
         </Button>

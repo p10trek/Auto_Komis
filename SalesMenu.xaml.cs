@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,8 @@ namespace Auto_Komis
         }
 
         public string ProcedureName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+        public string QueryString { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<SqlParameter> ParamList { get; set; }
         public bool AddData(string ProcedureName)
         {
             throw new NotImplementedException();
