@@ -22,18 +22,48 @@ namespace Auto_Komis
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
-    public partial class Login : Window, ISqlComunicator
+    public partial class Login : Window
     {
         private string Position { get; set; }
-        public string ProcedureName { get; set; }
-        public string QueryString { get; set; }
-        public List<SqlParameter> ParamList { get; set; }
 
         public Login()
         {
             InitializeComponent();
         }
 
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ISqlComunicator sqlComunicator = new LoginDataAcces(User.Text, Password.Password);
+            DataTable result = DataAcces.Instance.GetData(sqlComunicator);
+            if (result.Rows[0].Field<string>("Result") == "Passed")
+            {
+                SalesList salesList = new SalesList();
+                salesList.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(result.Rows[0].Field<string>("Result"));
+            }
+            //byte[] data = Encoding.GetEncoding(1252).GetBytes(Password.Password);
+            //var sha = new SHA256Managed();
+            //byte[] hash = sha.ComputeHash(data);
+        }
+    }
+    class LoginDataAcces : ISqlComunicator
+    {
+        string User { get; set; }
+        string Pass { get; set; }
+        public LoginDataAcces(string user, string pass)
+        {
+            this.User = user;
+            this.Pass = pass;
+        }
+        public string ProcedureName { get; set; }
+        public string QueryString { get; set; }
+        public List<SqlParameter> ParamList { get; set; }
         public bool GetData(string ProcedureName)
         {
             try
@@ -41,8 +71,8 @@ namespace Auto_Komis
                 this.ProcedureName = "Sign_In";
                 QueryString = "Select * from Logins";
                 ParamList = new List<SqlParameter>();
-                ParamList.Add(new SqlParameter("@Login", User.Text));
-                ParamList.Add(new SqlParameter("@Pass", Password.Password));
+                ParamList.Add(new SqlParameter("@Login", User));
+                ParamList.Add(new SqlParameter("@Pass", Pass));
                 return true;
             }
             catch
@@ -59,20 +89,6 @@ namespace Auto_Komis
         public bool ModifyData(string ProcedureName)
         {
             throw new NotImplementedException();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            DataTable result = DataAcces.Instance.GetData((ISqlComunicator)this);
-            if (result.Rows[0].Field<string>("Result") == "Passed")
-            {
-                SalesList salesList = new SalesList();
-                salesList.Show();
-                this.Close();
-            }
-            //byte[] data = Encoding.GetEncoding(1252).GetBytes(Password.Password);
-            //var sha = new SHA256Managed();
-            //byte[] hash = sha.ComputeHash(data);
         }
     }
 }
