@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auto_Komis"
         mc:Ignorable="d"
-        Title="EmployeeList" Height="450" Width="800">
+        Title="EmployeeList" Height="450" Width="800" Style="{StaticResource WindowStyle}" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <local:Menu Grid.Row="0" Grid.ColumnSpan="3"/>
+        <DataGrid Style="{StaticResource DataGridStyle}" IsReadOnly="True" VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="1" Loaded="DataGrid_Loaded" ItemsSource="{Binding EmployeeTable}" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                    <Setter Property="Background" Value="#AEAEAE"/>
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
+
     </Grid>
 </Window>

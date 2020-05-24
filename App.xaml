@@ -4,6 +4,67 @@
              xmlns:local="clr-namespace:Auto_Komis"
              StartupUri="Login.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="DarkGreyBg">
+            <SolidColorBrush.Color>
+                <Color A="#FF" R="#81" G="#81" B="#81"/>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+        <SolidColorBrush x:Key="DarkGrey">
+            <SolidColorBrush.Color>
+                <Color A="#FF" R="#AE" G="#AE" B="#AE"/>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+        <SolidColorBrush x:Key="LightGrey">
+            <SolidColorBrush.Color>
+                <Color A="#FF" R="#C9" G="#C9" B="#C9"/>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+        <Style x:Key="DataGridStyle" TargetType="{x:Type DataGrid}">
+            <Setter Property="ColumnHeaderStyle" Value="{DynamicResource ColumnHeaderStyle}"/>
+            <Setter Property="Background" Value="#818181"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+        </Style>
+        <Style x:Key="WindowStyle" TargetType="Window">
+            <Setter Property="Background" Value="{StaticResource DarkGreyBg}"/>
+        </Style>
+        <Style x:Key="ColumnHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Height" Value="35" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="ToolTip" Value="Click to sort."/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Background" Value="{StaticResource LightGrey}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Background" Value="{StaticResource LightGrey}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Background" Value="{StaticResource LightGrey}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="3"/>
+                </Style>
+            </Style.Resources>
+        </Style>
     </Application.Resources>
 </Application>

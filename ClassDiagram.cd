@@ -3,14 +3,14 @@
   <Class Name="Auto_Komis.DataAcces">
     <Position X="5.25" Y="0.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEIAAAAEAAAAACAABAAAAAAAAQCAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEIAAAAAAAAAACAABAABAAAAAQCAAQAAAAAA=</HashCode>
       <FileName>DataAcces.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Auto_Komis.Login" BaseTypeListCollapsed="true">
     <Position X="4" Y="4.25" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAEIAAAAAgAAAACAAAAAAAAAACACAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Login.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.35" />
@@ -18,14 +18,14 @@
   <Class Name="Auto_Komis.Car">
     <Position X="4.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAgAAAIAAAAAAAAAAAAAAAAAgAAAABAAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAgAAAIAAAAAAAAAAAAAAAAAgAIAABAAA=</HashCode>
       <FileName>Car.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Auto_Komis.CarList" BaseTypeListCollapsed="true">
     <Position X="11.75" Y="4" Width="4.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAkIAAAAAAAAAACAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAkIAAAAAAAAAACAABAAAAAAAAACAAAAAAAAA=</HashCode>
       <FileName>CarList.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -37,7 +37,7 @@
   <Class Name="Auto_Komis.CarDetails">
     <Position X="9.75" Y="0.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEIABAAAAAAAACAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAEIABAAAAAAAACAABAAAAAAAAACAAAAAAAAA=</HashCode>
       <FileName>CarDetails.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -59,7 +59,7 @@
   <Class Name="Auto_Komis.EmployeeList">
     <Position X="7.5" Y="3.75" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEIAAAAAAAAAACAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAEIAAAAAAAAAACAABAAAAAAAAACAAAAAAAAA=</HashCode>
       <FileName>EmployeeList.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -67,7 +67,7 @@
   <Class Name="Auto_Komis.Register">
     <Position X="0.5" Y="3.25" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAEIAAAAAAAAAACAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAACAEIAAAAAAAAAACAABAAAAAAAAACAAAAAAAAA=</HashCode>
       <FileName>Register.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -75,7 +75,7 @@
   <Class Name="Auto_Komis.SalesList">
     <Position X="13.75" Y="0.75" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEIAAAAAAAAAACAAAAAAIAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AAAAQAAAAQAAAAAAAAAAAAQAAAAIABAAAAAAAAAAAAA=</HashCode>
       <FileName>SalesList.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -83,7 +83,7 @@
   <Class Name="Auto_Komis.SalesMenu">
     <Position X="18" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAEIQAAAAAAAAACAAACAAAAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AgEAAAAAEIQAAAAAAAAACAABCAAAAAAAACAAAAAAAAA=</HashCode>
       <FileName>SalesMenu.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -98,7 +98,7 @@
   <Interface Name="Auto_Komis.ISqlComunicator">
     <Position X="2.25" Y="0.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEIAAAAAAAAAACAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAEIAAAAAAAAAACAABAAAAAAAAACAAAAAAAAA=</HashCode>
       <FileName>ISqlComunicator.cs</FileName>
     </TypeIdentifier>
   </Interface>

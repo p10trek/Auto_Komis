@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auto_Komis"
         mc:Ignorable="d"
-        Title="CarDetails" Height="450" Width="800">
-    <Grid>
-        
+        Title="CarDetails" Height="450" Width="800" Style="{StaticResource WindowStyle}" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid Background="{StaticResource DarkGreyBg}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2.5*"/>
+        </Grid.ColumnDefinitions>
+        <local:Menu Grid.Row="0" Grid.ColumnSpan="3"/>
+        <Image Grid.RowSpan="5" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"  Grid.Column="1" Grid.Row="1"  Source="{Binding Path=Image.Source}"/>
+        <Button Grid.Row="6" Grid.Column="2" Content="Next" Click="Button_Click_Next"/>
+        <Button  Grid.Row="6" Grid.Column="1" Content="Previous" Click="Button_Click_Previous"/>
+        <TextBlock Grid.Row="1" FontSize="15" Background="#AEAEAE">Car Details:</TextBlock>
+        <TextBlock Grid.Row="2" Background="#C9C9C9" Text="{Binding Path=Car.Brand}"/>
+        <TextBlock Grid.Row="3" Background="#AEAEAE" Text="{Binding Path=Car.Model}"/>
+        <TextBlock Grid.Row="4" Background="#C9C9C9" Text="{Binding Path=Car.Price}"/>
+        <TextBlock Grid.Row="5" FontSize="15" Background="{StaticResource DarkGreyBg}">Car Technical Details:</TextBlock>
+        <TextBlock Grid.Row="6" Grid.RowSpan="2" TextWrapping="Wrap"  Background="{StaticResource DarkGreyBg}" Text="{Binding Path=Car.TechnicalDetailsString}"/>
+        <TextBlock Grid.Row="8" FontSize="15" Background="{StaticResource DarkGreyBg}">Car Equipments:</TextBlock>
+        <TextBlock Grid.Row="9" Grid.ColumnSpan="3" TextWrapping="Wrap" Background="{StaticResource DarkGreyBg}" Text="{Binding Path=Car.EquipmentString}"/>
     </Grid>
 </Window>

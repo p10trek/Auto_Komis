@@ -1,18 +1,18 @@
-﻿<Window x:Class="Auto_Komis.SalesList"
+﻿<Window x:Class="Auto_Komis.CustomerList"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auto_Komis"
         mc:Ignorable="d"
-        Title="SalesList" Height="500" Width="800" x:Name="SalesList1" Style="{StaticResource WindowStyle}" WindowStartupLocation="CenterScreen">
+        Title="CustomerList" Height="450" Width="800" Style="{StaticResource WindowStyle}" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
         <local:Menu Grid.Row="0" Grid.ColumnSpan="3"/>
-        <DataGrid Style="{StaticResource DataGridStyle}" IsReadOnly="True" VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="1" Loaded="DataGrid_Loaded" ItemsSource="{Binding SomeData}" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn">
+        <DataGrid Style="{StaticResource DataGridStyle}" IsReadOnly="True" VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="1" Loaded="DataGrid_Loaded" ItemsSource="{Binding CustomersTable}" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
@@ -20,6 +20,6 @@
                 </Style>
             </DataGrid.Resources>
         </DataGrid>
-    
+
     </Grid>
 </Window>

@@ -12,7 +12,7 @@ namespace Auto_Komis
         string ProcedureName { get; set; }
         string QueryString { get; set; }
         List<SqlParameter> ParamList { get; set; }
-        bool GetData(string ProcedureName);
+        bool GetData(string ProcedureName = null);
         bool AddData(string ProcedureName);
         bool ModifyData(string ProcedureName);
     }

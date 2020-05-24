@@ -35,7 +35,8 @@ namespace Auto_Komis
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ISqlComunicator sqlComunicator = new LoginDataAcces(User.Text, Password.Password);
+            
+            ISqlComunicator sqlComunicator = new LoginsDataAcces(User.Text, Password.Password);
             DataTable result = DataAcces.Instance.GetData(sqlComunicator);
             if (result.Rows[0].Field<string>("Result") == "Passed")
             {
@@ -47,16 +48,13 @@ namespace Auto_Komis
             {
                 MessageBox.Show(result.Rows[0].Field<string>("Result"));
             }
-            //byte[] data = Encoding.GetEncoding(1252).GetBytes(Password.Password);
-            //var sha = new SHA256Managed();
-            //byte[] hash = sha.ComputeHash(data);
         }
     }
-    class LoginDataAcces : ISqlComunicator
+    class LoginsDataAcces : ISqlComunicator
     {
         string User { get; set; }
         string Pass { get; set; }
-        public LoginDataAcces(string user, string pass)
+        public LoginsDataAcces(string user, string pass)
         {
             this.User = user;
             this.Pass = pass;
@@ -69,7 +67,6 @@ namespace Auto_Komis
             try
             {
                 this.ProcedureName = "Sign_In";
-                QueryString = "Select * from Logins";
                 ParamList = new List<SqlParameter>();
                 ParamList.Add(new SqlParameter("@Login", User));
                 ParamList.Add(new SqlParameter("@Pass", Pass));

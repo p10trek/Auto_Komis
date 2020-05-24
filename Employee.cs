@@ -8,10 +8,10 @@ namespace Auto_Komis
 {
     public class Employee
     {
-        string UserLogin { get; set; }
-        string Name { get; set; }
-        string Surname { get; set; }
-        int PositionID { get; set; }
-        int DiscountLevel { get; set; }
+        public string UserLogin { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public int PositionID { get; set; }
+        public int DiscountLevel { get; set; }
     }
 }

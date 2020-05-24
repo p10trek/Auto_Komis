@@ -36,7 +36,6 @@ namespace Auto_Komis
             
             string ConnectionString = @"Server=LOCALHOST\SQLEXPRESS;Database=AutoKomisDB;Trusted_Connection=True;";
             SqlConnection connection = new SqlConnection(ConnectionString);
-            //command.Parameters.AddWithValue("@tPatSName", "Your-Parm-Value");
             connection.Open();
             return connection;
         }
@@ -44,15 +43,18 @@ namespace Auto_Komis
 
         public DataTable GetData(ISqlComunicator SqlComunicator)
         {
-            SqlComunicator.GetData(null);
+            SqlComunicator.GetData();
             using (SqlConnection connection = CreateSQLConnection()) 
             { 
                 
                 SqlCommand command = new SqlCommand(SqlComunicator.ProcedureName, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                foreach(SqlParameter param in SqlComunicator.ParamList)
+                if (SqlComunicator.ParamList != null)
                 {
-                    command.Parameters.Add(param);
+                    foreach (SqlParameter param in SqlComunicator.ParamList)
+                    {
+                        command.Parameters.Add(param);
+                    }
                 }
                 SqlDataReader reader = command.ExecuteReader();
                 try

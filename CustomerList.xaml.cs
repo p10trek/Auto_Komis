@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,39 +18,59 @@ using System.Windows.Shapes;
 namespace Auto_Komis
 {
     /// <summary>
-    /// Logika interakcji dla klasy SalesList.xaml
+    /// Logika interakcji dla klasy CustomerList.xaml
     /// </summary>
-    public partial class SalesList : Window,INotifyPropertyChanged
+    public partial class CustomerList : Window, INotifyPropertyChanged
     {
-        private DataView someData;
-        public DataView SomeData
+        private DataView customersTable;
+        public DataView CustomersTable
         {
-            get 
+            get
             {
-                return someData;
+                return customersTable;
             }
             set
             {
-                someData = null;
-                someData = value;
-                OnPropertyChanged("SomeData");
+                customersTable = null;
+                customersTable = value;
+                OnPropertyChanged("CustomersTable");
             }
         }
-        public List<Transaction> ListOfTransactions { get; set; }
-        public SalesList()
+        public CustomerList()
         {
             InitializeComponent();
             DataContext = this;
-           
+        }
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            string guid = (((sender as DataGridRow)?.Item as DataRowView)?.Row as DataRow)?.ItemArray[0]?.ToString();
+            if (!String.IsNullOrEmpty(guid))
+            {
+                Guid transactionID = new Guid(guid);
+                if (transactionID != Guid.Empty)
+                {
+                    SalesDetails salesDetails = new SalesDetails(transactionID);
+                    salesDetails.Show();
+                    this.Close();
+                }
+            }
+        }
+        private void DataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "ID")
+            {
+                e.Cancel = true;
+            }
+
         }
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            ISqlComunicator sqlComunicator = new TransactionsDataAcces();
+            ISqlComunicator sqlComunicator = new CustomersDataAcces();
             DataTable result = DataAcces.Instance.GetData(sqlComunicator);
             if (result.Rows.Count > 0)
             {
-                SomeData = new DataView();
-                SomeData = result.DefaultView;
+                CustomersTable = new DataView();
+                CustomersTable = result.DefaultView;
             }
             else
             {
@@ -79,32 +96,8 @@ namespace Auto_Komis
             }
         }
         #endregion
-
-        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            string guid = (((sender as DataGridRow)?.Item as DataRowView)?.Row as DataRow)?.ItemArray[0]?.ToString();
-            if (!String.IsNullOrEmpty(guid))
-            {
-                Guid transactionID = new Guid(guid);
-                if (transactionID != Guid.Empty)
-                {
-                    SalesDetails salesDetails = new SalesDetails(transactionID);
-                    salesDetails.Show();
-                    this.Close();
-                }
-            }
-        }
-
-        private void DataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-            if (e.PropertyName == "ID")
-            {
-                e.Cancel = true;
-            }
-           
-        }
     }
-    class TransactionsDataAcces : ISqlComunicator
+    class CustomersDataAcces : ISqlComunicator
     {
         public string ProcedureName { get; set; }
         public string QueryString { get; set; }
@@ -113,7 +106,7 @@ namespace Auto_Komis
         {
             try
             {
-                this.ProcedureName = "get_transaction_list";
+                this.ProcedureName = "Get_Customer_list";
                 return true;
             }
             catch
@@ -132,4 +125,5 @@ namespace Auto_Komis
             throw new NotImplementedException();
         }
     }
+
 }
