@@ -77,10 +77,16 @@ namespace Auto_Komis
 
                     resultTable = new DataTable();
                     resultTable.Load(reader);
-                    if (resultTable.Columns[0].ColumnName == "Error")
+                    
+                    if(resultTable.Columns[0].ColumnName == "Succes")
                     {
                         MessageBox.Show(resultTable.Rows[0][0].ToString());
                     }
+                    else if (resultTable.Columns[0].ColumnName == "Error")
+                    {
+                        MessageBox.Show(resultTable.Rows[0][0].ToString());
+                    }
+                    
 
                 }
                 finally
