@@ -41,20 +41,6 @@ namespace Auto_Komis
             InitializeComponent();
             DataContext = this;
         }
-        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            string guid = (((sender as DataGridRow)?.Item as DataRowView)?.Row as DataRow)?.ItemArray[0]?.ToString();
-            if (!String.IsNullOrEmpty(guid))
-            {
-                Guid transactionID = new Guid(guid);
-                if (transactionID != Guid.Empty)
-                {
-                    SalesDetails salesDetails = new SalesDetails(transactionID);
-                    salesDetails.Show();
-                    this.Close();
-                }
-            }
-        }
         private void DataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             if (e.PropertyName == "ID")

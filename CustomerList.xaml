@@ -15,7 +15,6 @@
         <DataGrid Style="{StaticResource DataGridStyle}" IsReadOnly="True" VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="1" Loaded="DataGrid_Loaded" ItemsSource="{Binding CustomersTable}" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
-                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
                     <Setter Property="Background" Value="#AEAEAE"/>
                 </Style>
             </DataGrid.Resources>

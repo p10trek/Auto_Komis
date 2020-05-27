@@ -66,5 +66,11 @@
                 </Style>
             </Style.Resources>
         </Style>
+
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
     </Application.Resources>
 </Application>

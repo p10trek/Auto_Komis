@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Auto_Komis
 {
@@ -44,9 +45,23 @@ namespace Auto_Komis
         public DataTable GetData(ISqlComunicator SqlComunicator)
         {
             SqlComunicator.GetData();
-            using (SqlConnection connection = CreateSQLConnection()) 
-            { 
-                
+            return ExecuteProcedure(SqlComunicator);
+        }
+        public DataTable AddData(ISqlComunicator SqlComunicator)
+        {
+            SqlComunicator.AddData();
+            return ExecuteProcedure(SqlComunicator);
+        }
+        public bool ModifyData(ISqlComunicator SqlComunicator)
+        {
+            return false;
+        }
+
+        public DataTable ExecuteProcedure(ISqlComunicator SqlComunicator)
+        {
+            using (SqlConnection connection = CreateSQLConnection())
+            {
+
                 SqlCommand command = new SqlCommand(SqlComunicator.ProcedureName, connection);
                 command.CommandType = CommandType.StoredProcedure;
                 if (SqlComunicator.ParamList != null)
@@ -62,22 +77,18 @@ namespace Auto_Komis
 
                     resultTable = new DataTable();
                     resultTable.Load(reader);
+                    if (resultTable.Columns[0].ColumnName == "Error")
+                    {
+                        MessageBox.Show(resultTable.Rows[0][0].ToString());
+                    }
 
                 }
                 finally
                 {
                     reader.Close();
-                } 
+                }
             }
             return resultTable;
-        }
-        public bool AddData(ISqlComunicator SqlComunicator)
-        {
-            return false;
-        }
-        public bool ModifyData(ISqlComunicator SqlComunicator)
-        {
-            return false;
         }
 
     }

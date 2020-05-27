@@ -49,6 +49,12 @@ namespace Auto_Komis
             CustomerList.Show();
             Window.GetWindow(this).Close();
         }
-        
+
+        private void Add_Employee_Button_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeAdding employeeAdding = new EmployeeAdding();
+            employeeAdding.Show();
+            Window.GetWindow(this).Close();
+        }
     }
 }

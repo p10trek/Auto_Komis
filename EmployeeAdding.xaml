@@ -1,0 +1,44 @@
+﻿<Window x:Class="Auto_Komis.EmployeeAdding"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Auto_Komis"
+        mc:Ignorable="d"
+        Title="EmployeeAdding" Height="450" Width="800">
+    <Grid Background="{StaticResource DarkGreyBg}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <local:Menu Grid.Row="0" Grid.ColumnSpan="4"/>
+        <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}" Grid.Column="1" Text="Login"/>
+        <TextBox Grid.Row="1"  Grid.Column="2" x:Name="LogBox"/>
+        <TextBlock Grid.Row="2" Style="{StaticResource TextBlockStyle}" Grid.Column="1" Text="Name"/>
+        <TextBox Grid.Row="2" Grid.Column="2" x:Name="NamBox"/>
+        <TextBlock Grid.Row="3" Style="{StaticResource TextBlockStyle}" Grid.Column="1" Text="Surname"/>
+        <TextBox Grid.Row="3" Grid.Column="2" x:Name="SurBox"/>
+        <TextBlock Grid.Row="4" Style="{StaticResource TextBlockStyle}" Grid.Column="1" Text="Position"/>
+        <ComboBox Grid.Row="4" x:Name="PosComBox" ItemsSource="{Binding ComboBoxItems}" Grid.Column="2"/>
+        <TextBlock Grid.Row="5" Style="{StaticResource TextBlockStyle}" Grid.Column="1" Text="Discount max level"/>
+        <TextBox Grid.Row="5" Grid.Column="2" x:Name="DisBox"/>
+        <TextBlock Grid.Row="6" Style="{StaticResource TextBlockStyle}" Grid.Column="1" Text="Password"/>
+        <PasswordBox Grid.Row="6" x:Name="PassBox" Grid.Column="2"/>
+        <TextBlock Grid.Row="7" Style="{StaticResource TextBlockStyle}" Grid.Column="1" Text="Retry password"/>
+        <PasswordBox Grid.Row="7" x:Name="PassBox1" Grid.Column="2"/>
+        <Button Grid.Column="1" Grid.Row="8" Click="Button_Click">Add User</Button>
+    </Grid>
+</Window>

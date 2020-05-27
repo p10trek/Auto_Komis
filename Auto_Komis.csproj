@@ -60,6 +60,9 @@
     <Compile Include="CustomerList.xaml.cs">
       <DependentUpon>CustomerList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeAdding.xaml.cs">
+      <DependentUpon>EmployeeAdding.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomerList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeAdding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
