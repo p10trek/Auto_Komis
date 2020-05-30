@@ -52,9 +52,10 @@ namespace Auto_Komis
             SqlComunicator.AddData();
             return ExecuteProcedure(SqlComunicator);
         }
-        public bool ModifyData(ISqlComunicator SqlComunicator)
+        public DataTable ModifyData(ISqlComunicator SqlComunicator)
         {
-            return false;
+            SqlComunicator.ModifyData();
+            return ExecuteProcedure(SqlComunicator);
         }
 
         public DataTable ExecuteProcedure(ISqlComunicator SqlComunicator)

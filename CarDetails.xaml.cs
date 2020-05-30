@@ -94,17 +94,24 @@ namespace Auto_Komis
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ISqlComunicator sqlComunicator = new CarDetailsDataAccess(carID);
-            TempResult = DataAcces.Instance.GetData(sqlComunicator);
-            this.Car = new Car(TempResult.Rows[0].Field<Guid>("carID"))
+            try
             {
-                Brand = $"Brand: {TempResult.Rows[0].Field<string>("Brand")}",
-                Model = $"Model: {TempResult.Rows[0].Field<string>("Model")}",
-                Price = $"Price: {TempResult.Rows[0].Field<decimal>("Price")}",
+                ISqlComunicator sqlComunicator = new CarDetailsDataAccess(carID);
+                TempResult = DataAcces.Instance.GetData(sqlComunicator);
+                this.Car = new Car(TempResult.Rows[0].Field<Guid>("carID"))
+                {
+                    Brand = $"Brand: {TempResult.Rows[0].Field<string>("Brand")}",
+                    Model = $"Model: {TempResult.Rows[0].Field<string>("Model")}",
+                    Price = $"Price: {TempResult.Rows[0].Field<decimal>("Price")}",
 
-            };
-            BitmapImage bitmapSource = LoadImage(TempResult.Rows[0].Field<byte[]>("Image1"));
-            this.Image = new Image { Source = bitmapSource };
+                };
+                BitmapImage bitmapSource = LoadImage(TempResult.Rows[0].Field<byte[]>("Image1"));
+                this.Image = new Image { Source = bitmapSource };
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #region INotifyPropertyChanged Members
 
@@ -126,22 +133,30 @@ namespace Auto_Komis
         #endregion
         private static BitmapImage LoadImage(byte[] imageData)
         {
-            if (imageData == null || imageData.Length == 0) return null;
-            var image = new BitmapImage();
-            using (var mem = new MemoryStream(imageData))
+            try
             {
-                mem.Position = 0;
-                image.BeginInit();
-                image.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
-                image.CacheOption = BitmapCacheOption.OnLoad;
-                image.UriSource = null;
-                image.StreamSource = mem;
-                image.EndInit();
-            }
-            image.Freeze();
-            return image;
-        }
 
+
+                if (imageData == null || imageData.Length == 0) return null;
+                var image = new BitmapImage();
+                using (var mem = new MemoryStream(imageData))
+                {
+                    mem.Position = 0;
+                    image.BeginInit();
+                    image.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+                    image.CacheOption = BitmapCacheOption.OnLoad;
+                    image.UriSource = null;
+                    image.StreamSource = mem;
+                    image.EndInit();
+                }
+                image.Freeze();
+                return image;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         private void Button_Click_Next(object sender, RoutedEventArgs e)
         {
             ImageCounter += 1;

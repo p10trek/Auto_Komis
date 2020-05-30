@@ -14,6 +14,6 @@ namespace Auto_Komis
         List<SqlParameter> ParamList { get; set; }
         bool GetData(string ProcedureName = null);
         bool AddData(string ProcedureName = null);
-        bool ModifyData(string ProcedureName);
+        bool ModifyData(string ProcedureName = null);
     }
 }

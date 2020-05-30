@@ -56,5 +56,12 @@ namespace Auto_Komis
             employeeAdding.Show();
             Window.GetWindow(this).Close();
         }
+
+        private void Add_Car_Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddCar addCar = new AddCar();
+            addCar.Show();
+            Window.GetWindow(this).Close();
+        }
     }
 }

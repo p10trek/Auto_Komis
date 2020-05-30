@@ -30,7 +30,7 @@
         <Button Content = "Employee List" Grid.Column="3" Grid.Row="1" Click="Employee_List_Button_Click"/>
         <Button Content = "Customer List" Grid.Column="4" Grid.Row="1"  Click="Customer_List_Button_Click"/>
         <Button Content = "Add Employee"  Grid.Column="5" Grid.Row="1" Click="Add_Employee_Button_Click"/>
-        <Button Content = "Add Car"  Grid.Column="6" Grid.Row="1"/>
+        <Button Content = "Add Car"  Grid.Column="6" Grid.Row="1" Click="Add_Car_Button_Click"/>
         <Button Content = "Sell A Car"  Grid.Column="7" Grid.Row="1"/>
         <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="9" Grid.RowSpan="3"/>
 

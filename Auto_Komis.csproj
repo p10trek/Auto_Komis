@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddCar.xaml.cs">
+      <DependentUpon>AddCar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerList.xaml.cs">
       <DependentUpon>CustomerList.xaml</DependentUpon>
@@ -63,6 +66,8 @@
     <Compile Include="EmployeeAdding.xaml.cs">
       <DependentUpon>EmployeeAdding.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Equipments.cs" />
+    <Compile Include="Images.cs" />
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
@@ -75,7 +80,12 @@
     <Compile Include="SalesDetails.xaml.cs">
       <DependentUpon>SalesDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TechnicalDetails.cs" />
     <Compile Include="Transaction.cs" />
+    <Page Include="AddCar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CarDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

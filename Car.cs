@@ -18,6 +18,7 @@ namespace Auto_Komis
         public Guid EquipmentID { get; set; }
 
         public Guid TechnicalDetails { get; set; }
+        public Guid ImagesID { get; set; }
         public string TechnicalDetailsString { get; set; }
         public string Price { get; set; }
         public Car()
