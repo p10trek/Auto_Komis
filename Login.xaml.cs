@@ -40,6 +40,7 @@ namespace Auto_Komis
             DataTable result = DataAcces.Instance.GetData(sqlComunicator);
             if (result.Rows[0].Field<string>("Result") == "Passed")
             {
+                CurrentUserInfo.Login = User.Text;
                 SalesList salesList = new SalesList();
                 salesList.Show();
                 this.Close();

@@ -135,7 +135,7 @@ namespace Auto_Komis
             this.Customer = new Customer()
             {
                 Name = $"Customer Full Name: {TempResult.Rows[0].Field<string>("Name")} {TempResult.Rows[0].Field<string>("Surname")}",
-                Phone = $"Telephone Number: {TempResult.Rows[0].Field<long?>("Phone")}"
+                Phone = $"Telephone Number: {TempResult.Rows[0].Field<string>("Phone")}"
             };
             this.Car = new Car(TempResult.Rows[0].Field<Guid>("carID"))
             {
@@ -201,7 +201,6 @@ namespace Auto_Komis
                 BitmapImage bitmapSource = LoadImage(TempResult.Rows[0].Field<byte[]>($"Image{ImageCounter}"));
                 this.Image = new Image { Source = bitmapSource };
             }
-
         }
         private void Button_Click_Previous(object sender, RoutedEventArgs e)
         {

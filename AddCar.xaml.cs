@@ -35,25 +35,57 @@ namespace Auto_Komis
 
         private void Add_Images(object sender, RoutedEventArgs e)
         {
-            List<byte[]> imageList = new List<byte[]>();
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = true;
-            openFileDialog.ShowDialog();
-            //if (openFileDialog.ShowDialog() == true)
-            foreach (string fileName in openFileDialog.FileNames)
+            try
             {
-                imageList.Add(GetPhoto(fileName));
+                List<byte[]> imageList = new List<byte[]>();
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Multiselect = true;
+                openFileDialog.ShowDialog();
+                //if (openFileDialog.ShowDialog() == true)
+                foreach (string fileName in openFileDialog.FileNames)
+                {
+                    imageList.Add(GetPhoto(fileName));
+                }
+                this.Images = new Images();
+                this.Images.ID = Guid.NewGuid();
+                this.Images.ImageList = imageList;
+                Images images = new Images(this.Images);
             }
-            this.Images = new Images();
-            this.Images.ID = Guid.NewGuid();
-            this.Images.ImageList = imageList;
-            Images images = new Images(this.Images);
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            this.Car.ID = Guid.NewGuid();
+           
+
+
+            DateTime yearOfProd = new DateTime();
+            int mileage = 0;
+            int engineCapacity = 0;
             try
             {
-                this.Car.ID = Guid.NewGuid();
+                if (DateTime.TryParse("01.01." + Year.Text, out yearOfProd))
+                    if (int.TryParse(Mileage.Text, out mileage))
+                        if (int.TryParse(EngCap.Text, out engineCapacity))
+                            ;
+                        else
+                        {
+                            MessageBox.Show("Value in Engice capacity field is incorect!");
+                            throw new InvalidCastException();
+                        }
+                    else
+                    {
+                        MessageBox.Show("Value in Milage field is incorect!");
+                        throw new InvalidCastException();
+                    }
+                else
+                {
+                    MessageBox.Show("Value in year field is incorect!");
+                    throw new InvalidCastException();
+                }
                 this.Equipments = new Equipments()
                 {
                     ABS = ABS.IsChecked,
@@ -75,7 +107,8 @@ namespace Auto_Komis
 
                 this.TechnicalDetails = new TechnicalDetails()
                 {
-                    YearOfProduction = Convert.ToDateTime("01.01."+Year.Text),
+                    
+                    YearOfProduction = yearOfProd,
                     Mileage = Convert.ToInt32(Mileage.Text),
                     EngineCapacity = Convert.ToInt32(EngCap.Text),
                     FuelType = Fuel.Text,
@@ -113,16 +146,14 @@ namespace Auto_Komis
                     
                     Model = Model.Text,
                     Brand = Brand.Text,
-                    EquipmentID = this.Equipments.ID,
-                    TechnicalDetails = this.TechnicalDetails.ID,
-                    ImagesID = this.Images.ID,
+                    EquipmentID = this.Equipments?.ID,
+                    TechnicalDetails = this.TechnicalDetails?.ID,
+                    ImagesID = this.Images?.ID,
                     Price = Price.Text
                 };
                 ISqlComunicator sqlComunicator = new AddingCarDataAccess(this.Car);
                 DataAcces.Instance.ModifyData(sqlComunicator);
             }
-
-
         }
         public static byte[] GetPhoto(string filePath)
         {

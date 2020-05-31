@@ -97,6 +97,21 @@ namespace Auto_Komis
             }
         }
         #endregion
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (CarGrid.SelectedItem == null)
+            {
+                MessageBox.Show("First select car from list");
+            }
+            else
+            {
+                Guid carGuid = (Guid)((DataRowView)CarGrid.SelectedItem).Row.ItemArray[0];
+                CarSelling carSelling = new CarSelling(carGuid);
+                carSelling.Show();
+                Window.GetWindow(this).Close();
+            }
+        }
     }
     class CarsDataAcces : ISqlComunicator
     {

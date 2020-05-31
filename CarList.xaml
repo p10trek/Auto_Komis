@@ -9,10 +9,11 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="9*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <local:Menu Grid.Row="0" Grid.ColumnSpan="3"/>
-        <DataGrid Style="{StaticResource DataGridStyle}" IsReadOnly="True" VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="1" Loaded="DataGrid_Loaded" ItemsSource="{Binding CarTable}" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn">
+        <DataGrid x:Name="CarGrid" Style="{StaticResource DataGridStyle}" IsReadOnly="True" VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="1" Loaded="DataGrid_Loaded" ItemsSource="{Binding CarTable}" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
@@ -20,6 +21,6 @@
                 </Style>
             </DataGrid.Resources>
         </DataGrid>
-
+        <Button Content="Sell sellected car" Click="Button_Click" Style="{StaticResource ButtonStyle}" Grid.Row="2"/>
     </Grid>
 </Window>

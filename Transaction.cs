@@ -8,9 +8,15 @@ namespace Auto_Komis
 {
     public class Transaction
     {
-        public int ID { get; set; }
-        public Customer Customer { get; set; }
-        public Employee Employee { get; set; }
-        public Car Car { get; set; }
+        public Guid ID { get; set; }
+        public Guid CustomerID { get; set; }
+        public Guid EmployeeID { get; set; }
+        public Guid CarID { get; set; }
+
+        public Transaction()
+        {
+
+        }
     }
+
 }

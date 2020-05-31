@@ -59,6 +59,10 @@
     <Compile Include="AddCar.xaml.cs">
       <DependentUpon>AddCar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CarSelling.xaml.cs">
+      <DependentUpon>CarSelling.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CurrentUserInfo.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerList.xaml.cs">
       <DependentUpon>CustomerList.xaml</DependentUpon>
@@ -91,6 +95,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CarList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CarSelling.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

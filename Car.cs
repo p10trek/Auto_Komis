@@ -15,10 +15,10 @@ namespace Auto_Komis
         public string Model { get; set; }
         
         public string EquipmentString { get; set; }
-        public Guid EquipmentID { get; set; }
+        public Guid? EquipmentID { get; set; }
 
-        public Guid TechnicalDetails { get; set; }
-        public Guid ImagesID { get; set; }
+        public Guid? TechnicalDetails { get; set; }
+        public Guid? ImagesID { get; set; }
         public string TechnicalDetailsString { get; set; }
         public string Price { get; set; }
         public Car()
